@@ -17,6 +17,17 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as StudentRouteImport } from './routes/student'
 import { Route as TeacherRouteImport } from './routes/teacher'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminAiInsightsRouteImport } from './routes/admin.ai-insights'
+import { Route as AdminAssignmentsRouteImport } from './routes/admin.assignments'
+import { Route as AdminClassesRouteImport } from './routes/admin.classes'
+import { Route as AdminCoursesRouteImport } from './routes/admin.courses'
+import { Route as AdminExaminationsRouteImport } from './routes/admin.examinations'
+import { Route as AdminRecordsRouteImport } from './routes/admin.records'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminStudentsRouteImport } from './routes/admin.students'
+import { Route as AdminTeachersRouteImport } from './routes/admin.teachers'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesIdRouteImport } from './routes/courses.$id'
 import { Route as StudentIndexRouteImport } from './routes/student.index'
@@ -76,6 +87,61 @@ const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAiInsightsRoute = AdminAiInsightsRouteImport.update({
+  id: '/ai-insights',
+  path: '/ai-insights',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAssignmentsRoute = AdminAssignmentsRouteImport.update({
+  id: '/assignments',
+  path: '/assignments',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminClassesRoute = AdminClassesRouteImport.update({
+  id: '/classes',
+  path: '/classes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCoursesRoute = AdminCoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminExaminationsRoute = AdminExaminationsRouteImport.update({
+  id: '/examinations',
+  path: '/examinations',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRecordsRoute = AdminRecordsRouteImport.update({
+  id: '/records',
+  path: '/records',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStudentsRoute = AdminStudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminTeachersRoute = AdminTeachersRouteImport.update({
+  id: '/teachers',
+  path: '/teachers',
+  getParentRoute: () => AdminRoute,
 } as any)
 const CoursesIndexRoute = CoursesIndexRouteImport.update({
   id: '/courses/',
@@ -175,13 +241,23 @@ const TeacherStudentsRoute = TeacherStudentsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/contact': typeof ContactRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/student': typeof StudentRouteWithChildren
   '/teacher': typeof TeacherRouteWithChildren
   '/terms': typeof TermsRoute
+  '/admin/ai-insights': typeof AdminAiInsightsRoute
+  '/admin/assignments': typeof AdminAssignmentsRoute
+  '/admin/classes': typeof AdminClassesRoute
+  '/admin/courses': typeof AdminCoursesRoute
+  '/admin/examinations': typeof AdminExaminationsRoute
+  '/admin/records': typeof AdminRecordsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/students': typeof AdminStudentsRoute
+  '/admin/teachers': typeof AdminTeachersRoute
   '/courses/$id': typeof CoursesIdRoute
   '/student/ai-insights': typeof StudentAiInsightsRoute
   '/student/assignments': typeof StudentAssignmentsRoute
@@ -198,17 +274,27 @@ export interface FileRoutesByFullPath {
   '/teacher/examinations': typeof TeacherExaminationsRoute
   '/teacher/performance': typeof TeacherPerformanceRoute
   '/teacher/students': typeof TeacherStudentsRoute
+  '/admin/': typeof AdminIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/student/': typeof StudentIndexRoute
   '/teacher/': typeof TeacherIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/admin/ai-insights': typeof AdminAiInsightsRoute
+  '/admin/assignments': typeof AdminAssignmentsRoute
+  '/admin/classes': typeof AdminClassesRoute
+  '/admin/courses': typeof AdminCoursesRoute
+  '/admin/examinations': typeof AdminExaminationsRoute
+  '/admin/records': typeof AdminRecordsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/students': typeof AdminStudentsRoute
+  '/admin/teachers': typeof AdminTeachersRoute
   '/courses/$id': typeof CoursesIdRoute
   '/student/ai-insights': typeof StudentAiInsightsRoute
   '/student/assignments': typeof StudentAssignmentsRoute
@@ -225,6 +311,7 @@ export interface FileRoutesByTo {
   '/teacher/examinations': typeof TeacherExaminationsRoute
   '/teacher/performance': typeof TeacherPerformanceRoute
   '/teacher/students': typeof TeacherStudentsRoute
+  '/admin': typeof AdminIndexRoute
   '/courses': typeof CoursesIndexRoute
   '/student': typeof StudentIndexRoute
   '/teacher': typeof TeacherIndexRoute
@@ -232,13 +319,23 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
+  '/admin': typeof AdminRouteWithChildren
   '/contact': typeof ContactRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/student': typeof StudentRouteWithChildren
   '/teacher': typeof TeacherRouteWithChildren
   '/terms': typeof TermsRoute
+  '/admin/ai-insights': typeof AdminAiInsightsRoute
+  '/admin/assignments': typeof AdminAssignmentsRoute
+  '/admin/classes': typeof AdminClassesRoute
+  '/admin/courses': typeof AdminCoursesRoute
+  '/admin/examinations': typeof AdminExaminationsRoute
+  '/admin/records': typeof AdminRecordsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/students': typeof AdminStudentsRoute
+  '/admin/teachers': typeof AdminTeachersRoute
   '/courses/$id': typeof CoursesIdRoute
   '/student/ai-insights': typeof StudentAiInsightsRoute
   '/student/assignments': typeof StudentAssignmentsRoute
@@ -255,6 +352,7 @@ export interface FileRoutesById {
   '/teacher/examinations': typeof TeacherExaminationsRoute
   '/teacher/performance': typeof TeacherPerformanceRoute
   '/teacher/students': typeof TeacherStudentsRoute
+  '/admin/': typeof AdminIndexRoute
   '/courses/': typeof CoursesIndexRoute
   '/student/': typeof StudentIndexRoute
   '/teacher/': typeof TeacherIndexRoute
@@ -270,6 +368,16 @@ export interface FileRouteTypes {
     | '/student'
     | '/teacher'
     | '/terms'
+    | '/admin/ai-insights'
+    | '/admin/assignments'
+    | '/admin/classes'
+    | '/admin/courses'
+    | '/admin/examinations'
+    | '/admin/records'
+    | '/admin/reports'
+    | '/admin/settings'
+    | '/admin/students'
+    | '/admin/teachers'
     | '/courses/$id'
     | '/student/ai-insights'
     | '/student/assignments'
@@ -286,17 +394,27 @@ export interface FileRouteTypes {
     | '/teacher/examinations'
     | '/teacher/performance'
     | '/teacher/students'
+    | '/admin/'
     | '/courses/'
     | '/student/'
     | '/teacher/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/admin'
     | '/contact'
     | '/login'
     | '/privacy'
     | '/terms'
+    | '/admin/ai-insights'
+    | '/admin/assignments'
+    | '/admin/classes'
+    | '/admin/courses'
+    | '/admin/examinations'
+    | '/admin/records'
+    | '/admin/reports'
+    | '/admin/settings'
+    | '/admin/students'
+    | '/admin/teachers'
     | '/courses/$id'
     | '/student/ai-insights'
     | '/student/assignments'
@@ -313,6 +431,7 @@ export interface FileRouteTypes {
     | '/teacher/examinations'
     | '/teacher/performance'
     | '/teacher/students'
+    | '/admin'
     | '/courses'
     | '/student'
     | '/teacher'
@@ -326,6 +445,16 @@ export interface FileRouteTypes {
     | '/student'
     | '/teacher'
     | '/terms'
+    | '/admin/ai-insights'
+    | '/admin/assignments'
+    | '/admin/classes'
+    | '/admin/courses'
+    | '/admin/examinations'
+    | '/admin/records'
+    | '/admin/reports'
+    | '/admin/settings'
+    | '/admin/students'
+    | '/admin/teachers'
     | '/courses/$id'
     | '/student/ai-insights'
     | '/student/assignments'
@@ -342,6 +471,7 @@ export interface FileRouteTypes {
     | '/teacher/examinations'
     | '/teacher/performance'
     | '/teacher/students'
+    | '/admin/'
     | '/courses/'
     | '/student/'
     | '/teacher/'
@@ -349,7 +479,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRoute
+  AdminRoute: typeof AdminRouteWithChildren
   ContactRoute: typeof ContactRoute
   LoginRoute: typeof LoginRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -417,6 +547,83 @@ declare module '@tanstack/react-router' {
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/ai-insights': {
+      id: '/admin/ai-insights'
+      path: '/ai-insights'
+      fullPath: '/admin/ai-insights'
+      preLoaderRoute: typeof AdminAiInsightsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/assignments': {
+      id: '/admin/assignments'
+      path: '/assignments'
+      fullPath: '/admin/assignments'
+      preLoaderRoute: typeof AdminAssignmentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/classes': {
+      id: '/admin/classes'
+      path: '/classes'
+      fullPath: '/admin/classes'
+      preLoaderRoute: typeof AdminClassesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/courses': {
+      id: '/admin/courses'
+      path: '/courses'
+      fullPath: '/admin/courses'
+      preLoaderRoute: typeof AdminCoursesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/examinations': {
+      id: '/admin/examinations'
+      path: '/examinations'
+      fullPath: '/admin/examinations'
+      preLoaderRoute: typeof AdminExaminationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/records': {
+      id: '/admin/records'
+      path: '/records'
+      fullPath: '/admin/records'
+      preLoaderRoute: typeof AdminRecordsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/students': {
+      id: '/admin/students'
+      path: '/students'
+      fullPath: '/admin/students'
+      preLoaderRoute: typeof AdminStudentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/teachers': {
+      id: '/admin/teachers'
+      path: '/teachers'
+      fullPath: '/admin/teachers'
+      preLoaderRoute: typeof AdminTeachersRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/courses/': {
       id: '/courses/'
@@ -554,6 +761,36 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminAiInsightsRoute: typeof AdminAiInsightsRoute
+  AdminAssignmentsRoute: typeof AdminAssignmentsRoute
+  AdminClassesRoute: typeof AdminClassesRoute
+  AdminCoursesRoute: typeof AdminCoursesRoute
+  AdminExaminationsRoute: typeof AdminExaminationsRoute
+  AdminRecordsRoute: typeof AdminRecordsRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminStudentsRoute: typeof AdminStudentsRoute
+  AdminTeachersRoute: typeof AdminTeachersRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAiInsightsRoute: AdminAiInsightsRoute,
+  AdminAssignmentsRoute: AdminAssignmentsRoute,
+  AdminClassesRoute: AdminClassesRoute,
+  AdminCoursesRoute: AdminCoursesRoute,
+  AdminExaminationsRoute: AdminExaminationsRoute,
+  AdminRecordsRoute: AdminRecordsRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminStudentsRoute: AdminStudentsRoute,
+  AdminTeachersRoute: AdminTeachersRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 interface StudentRouteChildren {
   StudentAiInsightsRoute: typeof StudentAiInsightsRoute
   StudentAssignmentsRoute: typeof StudentAssignmentsRoute
@@ -608,7 +845,7 @@ const TeacherRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
+  AdminRoute: AdminRouteWithChildren,
   ContactRoute: ContactRoute,
   LoginRoute: LoginRoute,
   PrivacyRoute: PrivacyRoute,
