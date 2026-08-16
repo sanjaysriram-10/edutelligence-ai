@@ -12,13 +12,19 @@ import { signOut } from "@/lib/auth";
 import { cn } from "@/lib/utils";
 
 export interface NavItem {
-  to: LinkProps["to"];
+  to: NonNullable<LinkProps["to"]>;
   label: string;
   icon: ComponentType<{ className?: string }>;
   exact?: boolean;
 }
 
-function NavList({ items, onNavigate }: { items: NavItem[]; onNavigate?: () => void }) {
+function NavList({
+  items,
+  onNavigate,
+}: {
+  items: NavItem[];
+  onNavigate?: (() => void) | undefined;
+}) {
   return (
     <nav className="flex flex-col gap-1">
       {items.map((item) => (
@@ -26,7 +32,7 @@ function NavList({ items, onNavigate }: { items: NavItem[]; onNavigate?: () => v
           key={String(item.to)}
           to={item.to}
           activeOptions={{ exact: item.exact ?? false }}
-          onClick={onNavigate}
+          onClick={() => onNavigate?.()}
           activeProps={{ className: "bg-primary/10 text-primary font-semibold" }}
           className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
         >
