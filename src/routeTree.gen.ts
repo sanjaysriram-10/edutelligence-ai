@@ -27,6 +27,15 @@ import { Route as StudentCoursesRouteImport } from './routes/student.courses'
 import { Route as StudentExaminationsRouteImport } from './routes/student.examinations'
 import { Route as StudentGradesRouteImport } from './routes/student.grades'
 import { Route as StudentProfileRouteImport } from './routes/student.profile'
+import { Route as TeacherIndexRouteImport } from './routes/teacher.index'
+import { Route as TeacherAiInsightsRouteImport } from './routes/teacher.ai-insights'
+import { Route as TeacherAssignmentsRouteImport } from './routes/teacher.assignments'
+import { Route as TeacherAttendanceRouteImport } from './routes/teacher.attendance'
+import { Route as TeacherClassesRouteImport } from './routes/teacher.classes'
+import { Route as TeacherCoursesRouteImport } from './routes/teacher.courses'
+import { Route as TeacherExaminationsRouteImport } from './routes/teacher.examinations'
+import { Route as TeacherPerformanceRouteImport } from './routes/teacher.performance'
+import { Route as TeacherStudentsRouteImport } from './routes/teacher.students'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -118,6 +127,51 @@ const StudentProfileRoute = StudentProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => StudentRoute,
 } as any)
+const TeacherIndexRoute = TeacherIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => TeacherRoute,
+} as any)
+const TeacherAiInsightsRoute = TeacherAiInsightsRouteImport.update({
+  id: '/ai-insights',
+  path: '/ai-insights',
+  getParentRoute: () => TeacherRoute,
+} as any)
+const TeacherAssignmentsRoute = TeacherAssignmentsRouteImport.update({
+  id: '/assignments',
+  path: '/assignments',
+  getParentRoute: () => TeacherRoute,
+} as any)
+const TeacherAttendanceRoute = TeacherAttendanceRouteImport.update({
+  id: '/attendance',
+  path: '/attendance',
+  getParentRoute: () => TeacherRoute,
+} as any)
+const TeacherClassesRoute = TeacherClassesRouteImport.update({
+  id: '/classes',
+  path: '/classes',
+  getParentRoute: () => TeacherRoute,
+} as any)
+const TeacherCoursesRoute = TeacherCoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => TeacherRoute,
+} as any)
+const TeacherExaminationsRoute = TeacherExaminationsRouteImport.update({
+  id: '/examinations',
+  path: '/examinations',
+  getParentRoute: () => TeacherRoute,
+} as any)
+const TeacherPerformanceRoute = TeacherPerformanceRouteImport.update({
+  id: '/performance',
+  path: '/performance',
+  getParentRoute: () => TeacherRoute,
+} as any)
+const TeacherStudentsRoute = TeacherStudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => TeacherRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -126,7 +180,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/student': typeof StudentRouteWithChildren
-  '/teacher': typeof TeacherRoute
+  '/teacher': typeof TeacherRouteWithChildren
   '/terms': typeof TermsRoute
   '/courses/$id': typeof CoursesIdRoute
   '/student/ai-insights': typeof StudentAiInsightsRoute
@@ -136,8 +190,17 @@ export interface FileRoutesByFullPath {
   '/student/examinations': typeof StudentExaminationsRoute
   '/student/grades': typeof StudentGradesRoute
   '/student/profile': typeof StudentProfileRoute
+  '/teacher/ai-insights': typeof TeacherAiInsightsRoute
+  '/teacher/assignments': typeof TeacherAssignmentsRoute
+  '/teacher/attendance': typeof TeacherAttendanceRoute
+  '/teacher/classes': typeof TeacherClassesRoute
+  '/teacher/courses': typeof TeacherCoursesRoute
+  '/teacher/examinations': typeof TeacherExaminationsRoute
+  '/teacher/performance': typeof TeacherPerformanceRoute
+  '/teacher/students': typeof TeacherStudentsRoute
   '/courses/': typeof CoursesIndexRoute
   '/student/': typeof StudentIndexRoute
+  '/teacher/': typeof TeacherIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -145,7 +208,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
-  '/teacher': typeof TeacherRoute
   '/terms': typeof TermsRoute
   '/courses/$id': typeof CoursesIdRoute
   '/student/ai-insights': typeof StudentAiInsightsRoute
@@ -155,8 +217,17 @@ export interface FileRoutesByTo {
   '/student/examinations': typeof StudentExaminationsRoute
   '/student/grades': typeof StudentGradesRoute
   '/student/profile': typeof StudentProfileRoute
+  '/teacher/ai-insights': typeof TeacherAiInsightsRoute
+  '/teacher/assignments': typeof TeacherAssignmentsRoute
+  '/teacher/attendance': typeof TeacherAttendanceRoute
+  '/teacher/classes': typeof TeacherClassesRoute
+  '/teacher/courses': typeof TeacherCoursesRoute
+  '/teacher/examinations': typeof TeacherExaminationsRoute
+  '/teacher/performance': typeof TeacherPerformanceRoute
+  '/teacher/students': typeof TeacherStudentsRoute
   '/courses': typeof CoursesIndexRoute
   '/student': typeof StudentIndexRoute
+  '/teacher': typeof TeacherIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -166,7 +237,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/student': typeof StudentRouteWithChildren
-  '/teacher': typeof TeacherRoute
+  '/teacher': typeof TeacherRouteWithChildren
   '/terms': typeof TermsRoute
   '/courses/$id': typeof CoursesIdRoute
   '/student/ai-insights': typeof StudentAiInsightsRoute
@@ -176,8 +247,17 @@ export interface FileRoutesById {
   '/student/examinations': typeof StudentExaminationsRoute
   '/student/grades': typeof StudentGradesRoute
   '/student/profile': typeof StudentProfileRoute
+  '/teacher/ai-insights': typeof TeacherAiInsightsRoute
+  '/teacher/assignments': typeof TeacherAssignmentsRoute
+  '/teacher/attendance': typeof TeacherAttendanceRoute
+  '/teacher/classes': typeof TeacherClassesRoute
+  '/teacher/courses': typeof TeacherCoursesRoute
+  '/teacher/examinations': typeof TeacherExaminationsRoute
+  '/teacher/performance': typeof TeacherPerformanceRoute
+  '/teacher/students': typeof TeacherStudentsRoute
   '/courses/': typeof CoursesIndexRoute
   '/student/': typeof StudentIndexRoute
+  '/teacher/': typeof TeacherIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -198,8 +278,17 @@ export interface FileRouteTypes {
     | '/student/examinations'
     | '/student/grades'
     | '/student/profile'
+    | '/teacher/ai-insights'
+    | '/teacher/assignments'
+    | '/teacher/attendance'
+    | '/teacher/classes'
+    | '/teacher/courses'
+    | '/teacher/examinations'
+    | '/teacher/performance'
+    | '/teacher/students'
     | '/courses/'
     | '/student/'
+    | '/teacher/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -207,7 +296,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/login'
     | '/privacy'
-    | '/teacher'
     | '/terms'
     | '/courses/$id'
     | '/student/ai-insights'
@@ -217,8 +305,17 @@ export interface FileRouteTypes {
     | '/student/examinations'
     | '/student/grades'
     | '/student/profile'
+    | '/teacher/ai-insights'
+    | '/teacher/assignments'
+    | '/teacher/attendance'
+    | '/teacher/classes'
+    | '/teacher/courses'
+    | '/teacher/examinations'
+    | '/teacher/performance'
+    | '/teacher/students'
     | '/courses'
     | '/student'
+    | '/teacher'
   id:
     | '__root__'
     | '/'
@@ -237,8 +334,17 @@ export interface FileRouteTypes {
     | '/student/examinations'
     | '/student/grades'
     | '/student/profile'
+    | '/teacher/ai-insights'
+    | '/teacher/assignments'
+    | '/teacher/attendance'
+    | '/teacher/classes'
+    | '/teacher/courses'
+    | '/teacher/examinations'
+    | '/teacher/performance'
+    | '/teacher/students'
     | '/courses/'
     | '/student/'
+    | '/teacher/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -248,7 +354,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   PrivacyRoute: typeof PrivacyRoute
   StudentRoute: typeof StudentRouteWithChildren
-  TeacherRoute: typeof TeacherRoute
+  TeacherRoute: typeof TeacherRouteWithChildren
   TermsRoute: typeof TermsRoute
   CoursesIdRoute: typeof CoursesIdRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
@@ -382,6 +488,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudentProfileRouteImport
       parentRoute: typeof StudentRoute
     }
+    '/teacher/': {
+      id: '/teacher/'
+      path: '/'
+      fullPath: '/teacher/'
+      preLoaderRoute: typeof TeacherIndexRouteImport
+      parentRoute: typeof TeacherRoute
+    }
+    '/teacher/ai-insights': {
+      id: '/teacher/ai-insights'
+      path: '/ai-insights'
+      fullPath: '/teacher/ai-insights'
+      preLoaderRoute: typeof TeacherAiInsightsRouteImport
+      parentRoute: typeof TeacherRoute
+    }
+    '/teacher/assignments': {
+      id: '/teacher/assignments'
+      path: '/assignments'
+      fullPath: '/teacher/assignments'
+      preLoaderRoute: typeof TeacherAssignmentsRouteImport
+      parentRoute: typeof TeacherRoute
+    }
+    '/teacher/attendance': {
+      id: '/teacher/attendance'
+      path: '/attendance'
+      fullPath: '/teacher/attendance'
+      preLoaderRoute: typeof TeacherAttendanceRouteImport
+      parentRoute: typeof TeacherRoute
+    }
+    '/teacher/classes': {
+      id: '/teacher/classes'
+      path: '/classes'
+      fullPath: '/teacher/classes'
+      preLoaderRoute: typeof TeacherClassesRouteImport
+      parentRoute: typeof TeacherRoute
+    }
+    '/teacher/courses': {
+      id: '/teacher/courses'
+      path: '/courses'
+      fullPath: '/teacher/courses'
+      preLoaderRoute: typeof TeacherCoursesRouteImport
+      parentRoute: typeof TeacherRoute
+    }
+    '/teacher/examinations': {
+      id: '/teacher/examinations'
+      path: '/examinations'
+      fullPath: '/teacher/examinations'
+      preLoaderRoute: typeof TeacherExaminationsRouteImport
+      parentRoute: typeof TeacherRoute
+    }
+    '/teacher/performance': {
+      id: '/teacher/performance'
+      path: '/performance'
+      fullPath: '/teacher/performance'
+      preLoaderRoute: typeof TeacherPerformanceRouteImport
+      parentRoute: typeof TeacherRoute
+    }
+    '/teacher/students': {
+      id: '/teacher/students'
+      path: '/students'
+      fullPath: '/teacher/students'
+      preLoaderRoute: typeof TeacherStudentsRouteImport
+      parentRoute: typeof TeacherRoute
+    }
   }
 }
 
@@ -410,6 +579,33 @@ const StudentRouteChildren: StudentRouteChildren = {
 const StudentRouteWithChildren =
   StudentRoute._addFileChildren(StudentRouteChildren)
 
+interface TeacherRouteChildren {
+  TeacherAiInsightsRoute: typeof TeacherAiInsightsRoute
+  TeacherAssignmentsRoute: typeof TeacherAssignmentsRoute
+  TeacherAttendanceRoute: typeof TeacherAttendanceRoute
+  TeacherClassesRoute: typeof TeacherClassesRoute
+  TeacherCoursesRoute: typeof TeacherCoursesRoute
+  TeacherExaminationsRoute: typeof TeacherExaminationsRoute
+  TeacherPerformanceRoute: typeof TeacherPerformanceRoute
+  TeacherStudentsRoute: typeof TeacherStudentsRoute
+  TeacherIndexRoute: typeof TeacherIndexRoute
+}
+
+const TeacherRouteChildren: TeacherRouteChildren = {
+  TeacherAiInsightsRoute: TeacherAiInsightsRoute,
+  TeacherAssignmentsRoute: TeacherAssignmentsRoute,
+  TeacherAttendanceRoute: TeacherAttendanceRoute,
+  TeacherClassesRoute: TeacherClassesRoute,
+  TeacherCoursesRoute: TeacherCoursesRoute,
+  TeacherExaminationsRoute: TeacherExaminationsRoute,
+  TeacherPerformanceRoute: TeacherPerformanceRoute,
+  TeacherStudentsRoute: TeacherStudentsRoute,
+  TeacherIndexRoute: TeacherIndexRoute,
+}
+
+const TeacherRouteWithChildren =
+  TeacherRoute._addFileChildren(TeacherRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
@@ -417,7 +613,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   PrivacyRoute: PrivacyRoute,
   StudentRoute: StudentRouteWithChildren,
-  TeacherRoute: TeacherRoute,
+  TeacherRoute: TeacherRouteWithChildren,
   TermsRoute: TermsRoute,
   CoursesIdRoute: CoursesIdRoute,
   CoursesIndexRoute: CoursesIndexRoute,
