@@ -41,9 +41,8 @@ export function detectWeakSubjects(subjects: SubjectScore[], threshold = 50): st
   const sorted = [...subjects].sort((a, b) => a.score - b.score);
   const below = sorted.filter((s) => s.score < threshold);
   if (below.length > 1) return below.slice(0, 2).map((s) => s.subject);
-  if (below.length === 1) return [below[0].subject];
   // No subject below threshold: surface the relatively weakest one.
-  return sorted.length ? [sorted[0].subject] : [];
+  return sorted.slice(0, 1).map((s) => s.subject);
 }
 
 export function analyzeTrend(history: PerformancePoint[]): Trend {
