@@ -14,7 +14,7 @@ export const Route = createFileRoute("/student/grades")({
       { property: "og:description", content: "Consolidated academic grade sheet with GPA summary." },
     ],
   }),
-  component: StudentGrades;
+  component: StudentGrades,
 });
 
 function StudentGrades() {
